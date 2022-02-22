@@ -1,0 +1,22 @@
+<h1>Detalle de Listado</h1>
+
+<div>
+<ul>
+    <li *ngFor="let nombre of arrListado; let i = index">
+        {{i}} - {{nombre}}
+    </li>
+
+</ul>
+</div>
+
+<!--
+    NOTA : #btnLimpiar : Es una referencia local que solo se utiliza en html,
+-->
+<!-- <div *ngIf="arrListado.length == 0">-->
+<div *ngIf="!arrListado.length else btnLimpiar">
+    <p>No Existe Registros Asociados...</p>
+</div>
+
+<ng-template #btnLimpiar>
+    <button (click)="limpiar()">Limpiar</button>
+</ng-template>
